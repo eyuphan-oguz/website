@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:website/view/home_page_view.dart';
+import 'package:website/view/services_page_view.dart';
 
 import 'hire_me_button_widget.dart';
 
@@ -21,8 +23,8 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _menuItem(text: 'ABOUT ME', onPressed: () {  }),
-            _menuItem(text: 'SERVICES', onPressed: () {  }),
+            _menuItem(text: 'ABOUT ME', onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePageView())); }),
+            _menuItem(text: 'SERVICES', onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context)=>ServicesPageView())); }),
             _menuItem(text: 'PORTFOLIO', onPressed: () {  }),
             _menuItem(text: 'TESTIMONIALS', onPressed: () {  }),
             _menuItem(text: 'CONTACT ME', onPressed: () {  }),

@@ -39,7 +39,7 @@ class _HomePageViewState extends State<HomePageView> {
                             children: [
                               Text("Hello, I am",style: TextStyle(color: Color(0xFFFCC028),fontFamily: 'Poppins',fontSize: 17,fontWeight: FontWeight.w700),),
                               SizedBox(height: size.height*0.015,),
-                              Text("CALEB NYONG",style: TextStyle(color: (Colors.black),fontFamily: 'Poppins',fontSize: 50,fontWeight: FontWeight.w700),),
+                              Text("EYUPHAN OGUZ",style: TextStyle(color: (Colors.black),fontFamily: 'Poppins',fontSize: 50,fontWeight: FontWeight.w700),),
                               SizedBox(height: size.height*0.015,),
                               Text("Mobile Developer & Computer Engineer",style: TextStyle(color: Color(0xFF207733),fontFamily: 'Poppins',fontSize: 20,fontWeight: FontWeight.w500)),
                               SizedBox(height: size.height*0.015,),
@@ -70,7 +70,7 @@ class _HomePageViewState extends State<HomePageView> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                                children: const [
                                   ListTile(
                                     contentPadding: EdgeInsets.only(left: 0),
                                     leading: CircleAvatar(),
