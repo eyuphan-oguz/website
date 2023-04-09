@@ -1,7 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:website/firebase_configurations.dart';
 import 'package:website/view/home_page_view.dart';
 
-void main() {
+final FirebaseConfigurations _firebaseConfigurations=FirebaseConfigurations();
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+        apiKey: _firebaseConfigurations.apiKey,
+        appId: _firebaseConfigurations.appId,
+        messagingSenderId: _firebaseConfigurations.messagingSenderId,
+        projectId: _firebaseConfigurations.projectId)
+  );
   runApp(const MyApp());
 }
 
