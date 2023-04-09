@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:website/firebaseDocId.dart';
 import 'package:website/widgets/appbar_widget.dart';
 import 'package:website/widgets/hire_me_button_widget.dart';
 
@@ -26,7 +27,9 @@ class _HomePageViewState extends State<HomePageView> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator.adaptive();
           }
-          print(snapshot.data!.docs[0]["title"]);
+          print(snapshot.data!.docs[FirebaseDocId().docId]["title"]);
+          print(snapshot.data!.docs[FirebaseDocId().docId]["helloContent"]);
+          print(snapshot.data!.docs[FirebaseDocId().docId]["subtitle"]);
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 90.0,vertical: 15),
               child: Column(
@@ -49,19 +52,19 @@ class _HomePageViewState extends State<HomePageView> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Hello, I am",style: TextStyle(color: Color(0xFFFCC028),fontFamily: 'Poppins',fontSize: 17,fontWeight: FontWeight.w700),),
+                                    Text(snapshot.data!.docs[FirebaseDocId().docId]["helloContent"],style: TextStyle(color: Color(0xFFFCC028),fontFamily: 'Poppins',fontSize: 17,fontWeight: FontWeight.w700),),
                                     SizedBox(height: size.height*0.015,),
-                                    Text(snapshot.data!.docs[0]["title"],style: TextStyle(color: (Colors.black),fontFamily: 'Poppins',fontSize: 50,fontWeight: FontWeight.w700),),
+                                    Text(snapshot.data!.docs[FirebaseDocId().docId]["title"],style: TextStyle(color: (Colors.black),fontFamily: 'Poppins',fontSize: 50,fontWeight: FontWeight.w700),),
                                     SizedBox(height: size.height*0.015,),
-                                    Text("Mobile Developer & Computer Engineer",style: TextStyle(color: Color(0xFF207733),fontFamily: 'Poppins',fontSize: 20,fontWeight: FontWeight.w500)),
+                                    Text(snapshot.data!.docs[FirebaseDocId().docId]["subtitle"],style: TextStyle(color: Color(0xFF207733),fontFamily: 'Poppins',fontSize: 20,fontWeight: FontWeight.w500)),
                                     SizedBox(height: size.height*0.015,),
-                                    Text("I’m a top online marketer and branding expert, I started my caree by lauching the popular metaverse design, in just a few short years, I built the brand to millions of social media followers and websites visitors.",style: TextStyle(color: Color(0xff808080),fontFamily: 'Poppins',fontSize: 17.52,fontWeight: FontWeight.w500,overflow: TextOverflow.ellipsis,),maxLines: 4,),
+                                    Text(snapshot.data!.docs[FirebaseDocId().docId]["description"],style: TextStyle(color: Color(0xff808080),fontFamily: 'Poppins',fontSize: 17.52,fontWeight: FontWeight.w500,overflow: TextOverflow.ellipsis,),maxLines: 4,),
                                     SizedBox(height: size.height*0.03,),
                                     Row(
                                       children: [
                                         HireMeButtonWidget(size: size, ),
                                         SizedBox(width: size.width*0.015,),
-                                        TextButton(onPressed: (){}, child: Row(children: [Text("Download CV",
+                                        TextButton(onPressed: (){}, child: Row(children: [Text(snapshot.data!.docs[FirebaseDocId().docId]["button2Text"],
                                           style: TextStyle(
                                               color: Colors.black, // Beyaz font rengi
                                               fontWeight: FontWeight.w900,
@@ -82,15 +85,15 @@ class _HomePageViewState extends State<HomePageView> {
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: const [
+                                        children:  [
                                           ListTile(
                                             contentPadding: EdgeInsets.only(left: 0),
                                             leading: CircleAvatar(),
-                                            title: Text("Feyzanur Yesildal"),
-                                            subtitle: Text("Sat 28 May 2022"),
+                                            title: Text(snapshot.data!.docs[FirebaseDocId().docId]["commentAuthor"]),
+                                            subtitle: Text(snapshot.data!.docs[FirebaseDocId().docId]["commentDate"]),
 
                                           ),
-                                          Text("In just a few short years, I built the brand to millions of social media followers and websites visitors.",
+                                          Text(snapshot.data!.docs[FirebaseDocId().docId]["commentContent"],
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
                                                 fontWeight: FontWeight.w500
